@@ -35,7 +35,9 @@ fi
 # --- 1. Создаём ключ, если его нет ---
 if [ ! -f "$KEY" ]; then
     echo "Создаём ключ $KEY..."
-    ssh-keygen -t ed25519 -f "$KEY" -N "" || exit 1
+    ssh-keygen -t ed25519 -f "$KEY" -N ""
+else
+    echo "Ключ $KEY уже существует"
 fi
 
 SSHUSER="ansible"
