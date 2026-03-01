@@ -15,9 +15,9 @@
       ansible.builtin.iptables:
         chain: INPUT
         protocol: tcp
-        destination_ports:
-        ctstate: NEW
+        destination_port:
           - "22"
+        ctstate: NEW
         jump: ACCEPT
 
     - name: Allow connections on multiple ports
@@ -25,8 +25,8 @@
         chain: INPUT
         source: 172.16.238.14
         protocol: tcp
-        destination_ports:
         ctstate: NEW
+        destination_ports:
           - "22"
         jump: ACCEPT
 
