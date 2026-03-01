@@ -26,13 +26,13 @@
         jump: ACCEPT
 
 
-    - name: Allow connections to tcp/5004
+    - name: Allow connections to tcp/5002
       ansible.builtin.iptables:
         chain: INPUT
         source: 172.16.238.14
         protocol: tcp
         ctstate: NEW
-        destination_port: 5004
+        destination_port: 5002
         jump: ACCEPT
 
 
