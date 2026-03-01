@@ -18,7 +18,7 @@
         destination_port: 22
         ctstate: NEW
         jump: ACCEPT
-        save: true
+
 
     - name: Allow connections to tcp/8088
       ansible.builtin.iptables:
@@ -28,14 +28,14 @@
         ctstate: NEW
         destination_port: 6400
         jump: ACCEPT
-        save: true
+
 
     - name: Allow related and established connections
       ansible.builtin.iptables:
         chain: INPUT
         ctstate: ESTABLISHED,RELATED
         jump: ACCEPT
-        save: true
+
       become: true
       
 
@@ -43,5 +43,11 @@
       ansible.builtin.iptables:
         chain: INPUT
         jump: DROP
-        save: true
+      become: true
+
+    - name: Save iptables rules permanently
+      community.general.iptables_state:
+        state: saved
+        table: filter
+        path: /etc/sysconfig/iptables
       become: true
