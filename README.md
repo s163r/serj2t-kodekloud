@@ -10,12 +10,12 @@ git clone https://github.com/s163r/serj2t-kodekloud.git
 
 ```sh
 cd serj2t-kodekloud
-sudo ./keygen.sh
+./keygen.sh
 ```
 
 3. Use Ansible for other tasks.
-example
-```
+
+```sh
 cd ansible
 ansible-playbook playbooks/bootstrap_nodes.yml
 ```
