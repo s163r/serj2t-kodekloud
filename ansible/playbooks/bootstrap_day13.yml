@@ -8,13 +8,8 @@
       ansible.builtin.package:
         name:
           - iptables
+          - iptables-services
         state: latest
-
-    - name: Install iptables-services
-      yum:
-        name: iptables-services
-        state: present
-      become: true
 
     - name: Enable iptables service
       systemd:
