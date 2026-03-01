@@ -8,5 +8,4 @@
       ansible.builtin.package:
         name:
           - iptables
-          - croni
         state: latest
