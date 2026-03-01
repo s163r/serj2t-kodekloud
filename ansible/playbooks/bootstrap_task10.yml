@@ -46,8 +46,5 @@
       become: true
 
     - name: Save iptables rules permanently
-      community.general.iptables_state:
-        state: saved
-        table: filter
-        path: /etc/sysconfig/iptables
+      ansible.builtin.command: /usr/libexec/iptables/iptables.init save
       become: true
