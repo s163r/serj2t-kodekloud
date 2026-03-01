@@ -10,6 +10,17 @@
           - iptables
         state: latest
 
+    - name: Install iptables-services
+      yum:
+        name: iptables-services
+        state: present
+      become: true
+
+    - name: Enable iptables service
+      systemd:
+        name: iptables
+        enabled: true
+      become: true
 
     - name: Allow SSH
       ansible.builtin.iptables:
@@ -45,6 +56,12 @@
         jump: DROP
       become: true
 
-    - name: Save iptables rules permanently
-      ansible.builtin.command: /usr/libexec/iptables/iptables.init save
+    - name: Save iptables rules
+      shell: iptables-save > /etc/sysconfig/iptables
+      become: true
+
+    - name: Restart iptables
+      systemd:
+        name: iptables
+        state: restarted
       become: true
