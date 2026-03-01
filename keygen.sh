@@ -43,8 +43,8 @@ SSHPASS="ansible"
 
 # --- 2. Цикл по хостам ---
 for HOST in "${HOSTS[@]}"; do
-    ALIAS="${HOST%%.*}"
-    
+    ALIAS="${HOST%%.*}"
+     
     echo "=== $ALIAS ($SSHUSER@$HOST) ==="
 
     # --- Копируем ключ через sshpass ---
