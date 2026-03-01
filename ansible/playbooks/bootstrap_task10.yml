@@ -35,12 +35,13 @@
         chain: INPUT
         ctstate: ESTABLISHED,RELATED
         jump: ACCEPT
+        save: true
       become: true
-      save: true
+      
 
     - name: DROP all traffic
       ansible.builtin.iptables:
         chain: INPUT
         jump: DROP
+        save: true
       become: true
-      save: true

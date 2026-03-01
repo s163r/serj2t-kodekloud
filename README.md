@@ -17,5 +17,5 @@ sudo ./keygen.sh
 example
 ```
 cd ansible
-ansible-playbook playbooks/bootstrap_nodes.yml -u ansible
+ansible-playbook playbooks/bootstrap_nodes.yml
 ```
