@@ -4,14 +4,14 @@
   become: true
 
   tasks:
-    - name: Install the latest version of iptables and croni
+    - name: Install the latest version of iptables.
       ansible.builtin.package:
         name:
           - iptables
         state: latest
 
 
-    - name: Allow connections on multiple ports
+    - name: Allow SSH
       ansible.builtin.iptables:
         chain: INPUT
         protocol: tcp
@@ -19,13 +19,13 @@
         ctstate: NEW
         jump: ACCEPT
 
-    - name: Allow connections on multiple ports
+    - name: Allow connections to tcp/8088
       ansible.builtin.iptables:
         chain: INPUT
         source: 172.16.238.14
         protocol: tcp
         ctstate: NEW
-        destination_ports: 8088
+        destination_port: 8088
         jump: ACCEPT
 
     - name: Allow related and established connections
