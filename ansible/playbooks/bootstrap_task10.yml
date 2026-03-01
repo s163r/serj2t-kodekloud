@@ -18,6 +18,7 @@
         destination_port: 22
         ctstate: NEW
         jump: ACCEPT
+        save: true
 
     - name: Allow connections to tcp/8088
       ansible.builtin.iptables:
@@ -27,6 +28,7 @@
         ctstate: NEW
         destination_port: 8088
         jump: ACCEPT
+        save: true
 
     - name: Allow related and established connections
       ansible.builtin.iptables:
@@ -34,9 +36,11 @@
         ctstate: ESTABLISHED,RELATED
         jump: ACCEPT
       become: true
+      save: true
 
     - name: DROP all traffic
       ansible.builtin.iptables:
         chain: INPUT
         jump: DROP
       become: true
+      save: true
