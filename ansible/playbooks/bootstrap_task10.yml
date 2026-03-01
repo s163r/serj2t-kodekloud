@@ -1,0 +1,12 @@
+---
+- name: Prepare application nodes
+  hosts: app
+  become: true
+
+  tasks:
+    - name: Install the latest version of iptables and croni
+      ansible.builtin.package:
+        name:
+          - iptables
+          - croni
+        state: latest

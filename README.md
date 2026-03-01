@@ -16,5 +16,6 @@ sudo ./keygen.sh
 3. Use Ansible for other tasks.
 example
 ```
-ansible-playbook ansible/playbooks/bootstrap_nodes.yml -u ansible
+cd ansible
+ansible-playbook playbooks/bootstrap_nodes.yml -u ansible
 ```
