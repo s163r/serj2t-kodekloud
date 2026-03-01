@@ -1,0 +1,50 @@
+---
+- name: Prepare application nodes
+  hosts: app
+  become: true
+
+  tasks:
+    - name: Install the latest version of iptables.
+      ansible.builtin.package:
+        name:
+          - iptables
+        state: latest
+
+
+    - name: Allow SSH
+      ansible.builtin.iptables:
+        chain: INPUT
+        protocol: tcp
+        destination_port: 22
+        ctstate: NEW
+        jump: ACCEPT
+
+
+    - name: Allow connections to tcp/5004
+      ansible.builtin.iptables:
+        chain: INPUT
+        source: 172.16.238.14
+        protocol: tcp
+        ctstate: NEW
+        destination_port: 5004
+        jump: ACCEPT
+
+
+    - name: Allow related and established connections
+      ansible.builtin.iptables:
+        chain: INPUT
+        ctstate: ESTABLISHED,RELATED
+        jump: ACCEPT
+
+      become: true
+      
+
+    - name: DROP all traffic
+      ansible.builtin.iptables:
+        chain: INPUT
+        jump: DROP
+      become: true
+
+    - name: Save iptables rules permanently
+      ansible.builtin.command: /usr/libexec/iptables/iptables.init save
+      become: true
