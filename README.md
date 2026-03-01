@@ -10,7 +10,7 @@ git clone https://github.com/s163r/serj2t-kodekloud.git
 
 ```sh
 cd serj2t-kodekloud
-./keygen.sh
+sudo ./keygen.sh
 ```
 
 3. Use Ansible for other tasks.
