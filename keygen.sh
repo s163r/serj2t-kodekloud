@@ -59,9 +59,9 @@ for HOST in "${HOSTS[@]}"; do
     # --- Добавляем в ~/.ssh/config ---
     if ! grep -q "Host $ALIAS" "$CONFIG"; then
         cat <<EOF >> "$CONFIG"
-Host $HOST
+Host $ALIAS
     HostName $HOST
-    User $USER
+    User $SSHUSER
     IdentityFile $KEY
     IdentitiesOnly yes
     StrictHostKeyChecking accept-new
