@@ -13,12 +13,7 @@ cd serj2t-kodekloud
 sudo ./keygen.sh
 ```
 
-3. Install community.general
-```
-ansible-galaxy collection install community.general
-```
-
-4. Use Ansible for other tasks.
+3. Use Ansible for other tasks.
 example
 ```
 cd ansible
