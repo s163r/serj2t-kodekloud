@@ -20,15 +20,7 @@
     - name: Create index.html
       ansible.builtin.copy:
         content: |
-          <!DOCTYPE html>
-          <html>
-          <head>
-            <title>Welcome</title>
-          </head>
-          <body>
             Welcome!
-          </body>
-          </html>
         dest: /usr/share/nginx/html/index.html
         owner: root
         group: root
