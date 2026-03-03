@@ -34,6 +34,7 @@
         group: root
         mode: '0644'
       become: true
+      notify: Restart nginx      
 
     - name: Copy nginx config
       ansible.builtin.copy:
