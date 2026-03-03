@@ -17,11 +17,11 @@
         state: started
       become: true
 
-#    - name: Copy nginx config
-#      ansible.builtin.copy:
-#        src: files/nginx.conf
-#        dest: /etc/nginx/nginx.conf
-#      notify: Restart nginx
+    - name: Copy nginx config
+      ansible.builtin.copy:
+        src: files/nginx.conf
+        dest: /etc/nginx/nginx.conf
+      notify: Restart nginx
 
     - name: Ensure SSL directories exist
       ansible.builtin.file:
@@ -55,9 +55,9 @@
         mode: '0644'
       become: true
 
-#  handlers:
-#
-#    - name: Restart nginx
-#      ansible.builtin.service:
-#        name: nginx
-#        state: restarted
+  handlers:
+
+    - name: Restart nginx
+      ansible.builtin.service:
+        name: nginx
+        state: restarted
