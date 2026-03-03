@@ -10,11 +10,18 @@
           - nginx
         state: latest
 
-    - name: Enable nginx service
-      systemd:
+    - name: Ensure nginx is enabled and running
+      ansible.builtin.service:
         name: nginx
         enabled: true
+        state: started
       become: true
+
+    - name: Copy nginx config
+      ansible.builtin.copy:
+        src: files/nginx.conf
+        dest: /etc/nginx/nginx.conf
+      notify: Restart nginx
 
     - name: Ensure SSL directories exist
       ansible.builtin.file:
@@ -47,3 +54,10 @@
         group: root
         mode: '0644'
       become: true
+
+  handlers:
+
+    - name: Restart nginx
+      ansible.builtin.service:
+        name: nginx
+        state: restarted
