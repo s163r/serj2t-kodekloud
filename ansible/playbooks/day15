@@ -16,6 +16,18 @@
         enabled: true
       become: true
 
+    - name: Ensure SSL directories exist
+      ansible.builtin.file:
+        path: "{{ item }}"
+        state: directory
+        owner: root
+        group: root
+        mode: '0755'
+      loop:
+        - /etc/ssl/private
+        - /etc/ssl/certs
+      become: true
+
     - name: Copy private key
       ansible.builtin.copy:
         remote_src: true
