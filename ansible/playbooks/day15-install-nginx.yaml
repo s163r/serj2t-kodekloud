@@ -17,6 +17,11 @@
         state: started
       become: true
 
+    - name: Copy index.html
+      ansible.builtin.copy:
+        src: files/index.html
+        dest: /
+
     - name: Copy nginx config
       ansible.builtin.copy:
         src: files/nginx.conf
