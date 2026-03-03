@@ -18,6 +18,7 @@
 
     - name: Copy private key
       ansible.builtin.copy:
+        remote_src: true
         src: /tmp/nautilus.key
         dest: /etc/ssl/private/nautilus.key
         owner: root
@@ -27,6 +28,7 @@
 
     - name: Copy certificate
       ansible.builtin.copy:
+        remote_src: true
         src: /tmp/nautilus.crt
         dest: /etc/ssl/certs/nautilus.crt
         owner: root
