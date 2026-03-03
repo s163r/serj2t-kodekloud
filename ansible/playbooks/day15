@@ -1,6 +1,6 @@
 ---
 - name: Prepare application nodes
-  hosts: stapp01.stratos.xfusioncorp.com
+  hosts: stapp02.stratos.xfusioncorp.com
   become: true
 
   tasks:
