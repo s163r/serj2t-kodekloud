@@ -10,8 +10,8 @@
           - nginx
         state: latest
 
-#    - name: Enable nginx service
-#      systemd:
-#        name: nginx
-#        enabled: true
-#      become: true
+    - name: Enable nginx service
+      systemd:
+        name: nginx
+        enabled: true
+      become: true
