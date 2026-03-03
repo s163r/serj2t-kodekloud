@@ -17,10 +17,14 @@
         state: started
       become: true
 
-    - name: Copy index.html
+    - name: Create index.html
       ansible.builtin.copy:
-        src: files/index.html
-        dest: /
+        content: "Welcome!"
+        dest: /usr/share/nginx/html/index.html
+        owner: root
+        group: root
+        mode: '0644'
+      become: true
 
     - name: Copy nginx config
       ansible.builtin.copy:
