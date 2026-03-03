@@ -15,3 +15,21 @@
         name: nginx
         enabled: true
       become: true
+
+    - name: Copy private key
+      ansible.builtin.copy:
+        src: /tmp/nautilus.key
+        dest: /etc/ssl/private/nautilus.key
+        owner: root
+        group: root
+        mode: '0600'
+      become: true
+
+    - name: Copy certificate
+      ansible.builtin.copy:
+        src: /tmp/nautilus.crt
+        dest: /etc/ssl/certs/nautilus.crt
+        owner: root
+        group: root
+        mode: '0644'
+      become: true
