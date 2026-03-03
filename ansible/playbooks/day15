@@ -1,0 +1,17 @@
+---
+- name: Prepare application nodes
+  hosts: stapp02.stratos.xfusioncorp.com
+  become: true
+
+  tasks:
+    - name: Install the latest version of iptables.
+      ansible.builtin.package:
+        name:
+          - nginx
+        state: latest
+
+    // - name: Enable nginx service
+    //   systemd:
+    //     name: nginx
+    //     enabled: true
+    //   become: true
