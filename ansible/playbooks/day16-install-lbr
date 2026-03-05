@@ -1,0 +1,25 @@
+---
+- name: Prepare application nodes
+  hosts: stlb01.stratos.xfusioncorp.com
+  become: true
+
+  tasks:
+    - name: Install the latest version of nginx.
+      ansible.builtin.package:
+        name:
+          - nginx
+        state: latest
+
+    - name: Ensure nginx is enabled and running
+      ansible.builtin.service:
+        name: nginx
+        enabled: true
+        state: started
+      become: true
+
+  handlers:
+
+    - name: Restart nginx
+      ansible.builtin.service:
+        name: nginx
+        state: restarted
