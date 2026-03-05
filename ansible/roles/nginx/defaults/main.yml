@@ -1,0 +1,9 @@
+---
+# переменные по умолчанию для роли nginx
+
+nginx_package_name: nginx
+nginx_service_name: nginx
+nginx_state: latest
+nginx_enabled: true
+nginx_port: 80
+nginx_worker_processes: 1
