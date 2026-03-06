@@ -1,0 +1,1 @@
+nginx_template: nginx-lb.conf.j2
