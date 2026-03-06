@@ -1,0 +1,21 @@
+worker_processes {{ nginx_worker_processes }};
+events {
+    worker_connections 1024;
+}
+http {
+
+upstream backend {
+{% for host in groups['app'] %}
+    server {{ host }}:{{ nginx_port }};
+{% endfor %}
+}
+
+server {
+    listen {{ nginx_port }};
+
+    location / {
+        proxy_pass http://backend;
+    }
+}
+
+}
