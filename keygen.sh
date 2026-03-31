@@ -18,7 +18,7 @@ HOSTS=(
     "stapp01.stratos.xfusioncorp.com"
     "stapp02.stratos.xfusioncorp.com"
     "stapp03.stratos.xfusioncorp.com"
-    "stlb01.stratos.xfusioncorp.com"
+    "stlb01"
     "stdb01.stratos.xfusioncorp.com"
     "ststor01.stratos.xfusioncorp.com"
     "stbkp01.stratos.xfusioncorp.com"
