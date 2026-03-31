@@ -15,15 +15,15 @@ KEY="$HOME/.ssh/id_ed25519"
 CONFIG="$HOME/.ssh/config"
 
 HOSTS=(
-    "stapp01.stratos.xfusioncorp.com"
-    "stapp02.stratos.xfusioncorp.com"
-    "stapp03.stratos.xfusioncorp.com"
+    "stapp01"
+    "stapp02"
+    "stapp03"
     "stlb01"
-    "stdb01.stratos.xfusioncorp.com"
-    "ststor01.stratos.xfusioncorp.com"
-    "stbkp01.stratos.xfusioncorp.com"
-    "stmail01.stratos.xfusioncorp.com"
-    "jenkins.stratos.xfusioncorp.com"
+    "stdb01"
+    "ststor01"
+    "stbkp01"
+    "stmail01"
+    "jenkins"
 )
 
 # --- Проверяем наличие sshpass ---
